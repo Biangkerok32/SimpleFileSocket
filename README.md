@@ -11,9 +11,9 @@ SimpleFileServer Server = new SimpleFileServer(8080, "/file/destination/director
 Server.listen();
 ```
 ### Client Side
-Create a SimpleFileClient object and instantiate with args(Host, Port, FileToSend).
+Create a SimpleFileClient object and instantiate with args(Host, Port).
 ```bash
-SimpleFileClient Client = new SimpleFileClient("127.0.0.1", 8080, file);
+SimpleFileClient Client = new SimpleFileClient("127.0.0.1", 8080);
 File file = new File("/Documents/file.jpg");
 Client.send(file);
 ```
