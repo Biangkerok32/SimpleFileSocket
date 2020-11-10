@@ -13,7 +13,14 @@ Server.listen();
 ### Client Side
 Create a SimpleFileClient object and instantiate with args(Host, Port, FileToSend).
 ```bash
-File file = new File("/Documents/file.jpg");
 SimpleFileClient Client = new SimpleFileClient("127.0.0.1", 8080, file);
-Client.send();
+File file = new File("/Documents/file.jpg");
+Client.send(file);
+```
+
+### All Done
+Close out the socket connections.
+```bash
+Server.stop()
+Client.stop()
 ```

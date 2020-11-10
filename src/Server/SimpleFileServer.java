@@ -20,10 +20,14 @@ public class SimpleFileServer {
         this.destinationDir = destinationDir;
     }
     public void listen() {
-        System.out.println("Listening on port " + this.Port);
+
         while (true) {
+            System.out.println("Listening on port " + this.Port);
             try {
+                //if (clientSocket == null) {
                 clientSocket = FileServer.accept();
+                System.out.println("Client Accepted");
+                //}
                 dis = new DataInputStream(clientSocket.getInputStream());
                 String filename = dis.readUTF();
                 int filesize = Integer.parseInt(dis.readUTF());
@@ -39,7 +43,8 @@ public class SimpleFileServer {
                     //System.out.println("read " + totalRead + " bytes.");
                     fos.write(buffer, 0, read);
                 }
-                stop();
+                System.out.println("New File at " + destinationDir + "/" + filename);
+                //stop();
             }
             catch (IOException e) {
                 System.out.println(e);

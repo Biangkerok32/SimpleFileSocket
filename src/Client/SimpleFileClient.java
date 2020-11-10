@@ -10,17 +10,18 @@ public class SimpleFileClient {
     private Socket FileClient;
     private DataOutputStream dos;
     private FileInputStream fis;
-    public SimpleFileClient(String Host, int Port, File file) {
+    public SimpleFileClient(String Host, int Port) {
+
+        this.Host = Host;
+        this.Port = Port;
+    }
+    public void send(File file) {
+        this.file = file;
         try {
             FileClient = new Socket(Host, Port);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.Host = Host;
-        this.Port = Port;
-        this.file = file;
-    }
-    public void send() {
         try {
             dos = new DataOutputStream(FileClient.getOutputStream());
             fis = new FileInputStream(file);
@@ -30,14 +31,20 @@ public class SimpleFileClient {
             while (fis.read(buffer) > 0) {
                 dos.write(buffer);
             }
-            fis.close();
-            dos.close();
             System.out.println("File Sent");
         }
         catch (FileNotFoundException e) {
             System.out.println(e);
         } catch (IOException e) {
             System.out.println(e);
+        }
+    }
+    public void stop() {
+        try {
+            fis.close();
+            dos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
