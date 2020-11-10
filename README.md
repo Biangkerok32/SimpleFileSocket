@@ -1,7 +1,7 @@
 # SimpleFileSocket
-Simple Socket Java Library to easily transfer files over the network.\
-Grab the SimpleFileSocket.jar file from /out/artifacts/SimpleFileSocket_jar/.\
-Easy implementation with only a few lines.
+Simple Java Library to easily transfer files over the network.\
+Grab the SimpleFileSocket.jar file from /out/artifacts/SimpleFileSocket_jar/\
+Easy implementation with only a few lines!
 
 ## Usage
 ### Server Side
